@@ -15,7 +15,7 @@ final class TabBarVM: ObservableObject {
         
     @Published var tabs: [TabModel] = []
     
-    @Published var x: [CGFloat] = [0]
+    @Published var arrayOffsets: [CGFloat] = [0]
     
     //MARK: Initializer
     
@@ -26,11 +26,11 @@ final class TabBarVM: ObservableObject {
     //MARK: Public Methotds
 
     func updateArray(_ count: Int) {
-        x = Array(repeating: 0, count: count)
+        arrayOffsets = Array(repeating: 0, count: count)
     }
     
     func updateXValue(_ index: Int,_ value: CGFloat) {
-        x[index] = value
+        arrayOffsets[index] = value
     }
     
     //MARK: Private Methotds

@@ -42,28 +42,19 @@ struct PreferenceKeyView: View {
                     GeometryReader { geometry in
                         let offset = geometry.frame(in: .global).minX
                         
-                        Button {
-                            selectTab = item
-                            selectedOffset = viewModel.arrayOffsets[item.number - 1]
-                        } label: {
-                            Text("\(item.number)")
-                                .font(.largeTitle.bold())
-                                .padding(.top, 20)
-                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                                .foregroundColor(selectTab.id == item.id ? .white : .secondary)
-                        }
-                        .preference(key: OffsetTabPreferenceKey.self, value: offset)
-                        .onPreferenceChange(OffsetTabPreferenceKey.self, perform: { value in
-                            viewModel.updateXValue(item.number - 1, value)
-                            if selectTab.id == item.id {
-                                selectedOffset = viewModel.arrayOffsets[item.number - 1]
-                            }
-                        })
+                        oneTabButton(item)
+                            .preference(key: OffsetTabPreferenceKey.self, value: offset)
+                            .onPreferenceChange(OffsetTabPreferenceKey.self, perform: { value in
+                                viewModel.updateXValue(item.number - 1, value)
+                                if selectTab.id == item.id {
+                                    selectedOffset = viewModel.arrayOffsets[item.number - 1]
+                                }
+                            })
                         
-                        .preference(key: SizeOneTabPreferenceKey.self, value: geometry.size)
-                        .onPreferenceChange(SizeOneTabPreferenceKey.self) { value in
-                            sizeOneTab = value
-                        }
+                            .preference(key: SizeOneTabPreferenceKey.self, value: geometry.size)
+                            .onPreferenceChange(SizeOneTabPreferenceKey.self) { value in
+                                sizeOneTab = value
+                            }
                     }
                     .frame(height: 100)
                 }
@@ -92,7 +83,20 @@ struct PreferenceKeyView: View {
     }
     
     //MARK: Private Methotds
-
+    
+    private func oneTabButton(_ item: TabModel) -> some View {
+        Button {
+            selectTab = item
+            selectedOffset = viewModel.arrayOffsets[item.number - 1]
+        } label: {
+            Text("\(item.number)")
+                .font(.largeTitle.bold())
+                .padding(.top, 20)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .foregroundColor(selectTab.id == item.id ? .white : .secondary)
+        }
+    }
+    
     private func buttonPlusMinus() -> some View {
         HStack(spacing: 20) {
             Button {
@@ -113,7 +117,7 @@ struct PreferenceKeyView: View {
             
             Button {
                 guard countTab != viewModel.tabs.count else { return }
-
+                
                 countTab += 1
             } label: {
                 Text("+")
@@ -129,9 +133,9 @@ struct PreferenceKeyView: View {
     private func textDefault() -> some View {
         VStack(alignment: .leading, spacing: 10) {
             defaultText("Selected Offset: \(String(format: "%.2f", selectedOffset))")
-
+            
             arrayOffsets()
-
+            
             defaultText("WidthTab: \(String(format: "%.2f", sizeOneTab.width))")
         }
         .frame(maxWidth: .infinity, alignment: .center)

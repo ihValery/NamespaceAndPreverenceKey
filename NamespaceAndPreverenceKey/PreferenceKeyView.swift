@@ -1,5 +1,5 @@
 //
-//  PreferenceKey.swift
+//  PreferenceKeyView.swift
 //  NamespaceAndPreverenceKey
 //
 //  Created by Валерий Игнатьев on 5.05.22.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-//MARK: - PreferenceKey
+//MARK: - PreferenceKeyView
 
-struct PreferenceKey: View {
+struct PreferenceKeyView: View {
     
     //MARK: Properties
     
-    @ObservedObject private var viewModel = TabBarViewModel()
+    @ObservedObject private var viewModel = TabBarVM()
     
-    @State private var selectTab = TabBarViewModel().tabs.first!
+    @State private var selectTab = TabBarVM().tabs.first!
     
     @State private var sizeOneTab: CGSize = .zero
     
@@ -125,12 +125,6 @@ struct PreferenceKey: View {
     
     private func textDefault() -> some View {
         VStack(alignment: .leading, spacing: 10) {
-            VStack(alignment: .leading, spacing: 5) {
-                Text("SelectTab: \(selectTab.number)")
-                Text("CountTab: \(countTab)")
-            }
-            .foregroundColor(.white)
-            
             Text("SelectX: \(String(format: "%.2f", selectedX))")
                 .foregroundColor(.white)
                 .font(.title.bold())
@@ -145,7 +139,6 @@ struct PreferenceKey: View {
                     }
             )
 
-            
             HStack(spacing: 10) {
                 Text("array x = ")
                     .foregroundColor(.gray)
@@ -184,9 +177,9 @@ struct PreferenceKey: View {
 
 //MARK: - PreviewProvider
 
-struct PreferenceKey_Previews: PreviewProvider {
+struct PreferenceKeyView_Previews: PreviewProvider {
     static var previews: some View {
-        PreferenceKey()
+        PreferenceKeyView()
             .previewInterfaceOrientation(.portrait)
     }
 }

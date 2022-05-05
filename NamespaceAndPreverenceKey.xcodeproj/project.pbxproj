@@ -13,6 +13,7 @@
 		80ACFBE128245BA60061CC17 /* PreferenceKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBE028245BA60061CC17 /* PreferenceKeyView.swift */; };
 		80ACFBE428245C260061CC17 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBE328245C260061CC17 /* TabModel.swift */; };
 		80ACFBE728245C4F0061CC17 /* TabBarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBE628245C4F0061CC17 /* TabBarVM.swift */; };
+		80ACFBEC2824689B0061CC17 /* NamespaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBEB2824689B0061CC17 /* NamespaceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		80ACFBE028245BA60061CC17 /* PreferenceKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeyView.swift; sourceTree = "<group>"; };
 		80ACFBE328245C260061CC17 /* TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
 		80ACFBE628245C4F0061CC17 /* TabBarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVM.swift; sourceTree = "<group>"; };
+		80ACFBEB2824689B0061CC17 /* NamespaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamespaceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				80ACFBCE282458A60061CC17 /* NamespaceAndPreverenceKeyApp.swift */,
-				80ACFBE528245C3B0061CC17 /* ViewModel */,
 				80ACFBE228245C150061CC17 /* Model */,
+				80ACFBE528245C3B0061CC17 /* ViewModel */,
 				80ACFBE828245EFF0061CC17 /* View */,
 				80ACFBD2282458A70061CC17 /* Assets.xcassets */,
 				80ACFBD4282458A70061CC17 /* Preview Content */,
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				80ACFBE028245BA60061CC17 /* PreferenceKeyView.swift */,
+				80ACFBEB2824689B0061CC17 /* NamespaceView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80ACFBEC2824689B0061CC17 /* NamespaceView.swift in Sources */,
 				80ACFBE128245BA60061CC17 /* PreferenceKeyView.swift in Sources */,
 				80ACFBE428245C260061CC17 /* TabModel.swift in Sources */,
 				80ACFBE728245C4F0061CC17 /* TabBarVM.swift in Sources */,

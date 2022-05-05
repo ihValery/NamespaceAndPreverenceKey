@@ -19,9 +19,7 @@ struct PreferenceKeyView: View {
     
     @State private var sizeOneTab: CGSize = .zero
     
-    @State private var sizeText: CGFloat = .zero
-    
-    @State private var selectedX: CGFloat = 0
+    @State private var selectedOffset: CGFloat = 0
     
     @State private var countTab: Int = 1 {
         didSet {
@@ -31,42 +29,11 @@ struct PreferenceKeyView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Color.black
-                .ignoresSafeArea()
             
             VStack(spacing: 20) {
                 textDefault()
                 
-                HStack(spacing: 20) {
-                    Button {
-                        guard countTab != 1 else { return }
-                        
-                        countTab -= 1
-                        
-                        if selectTab.number > countTab {
-                            selectedX = viewModel.x[countTab - 1]
-                            selectTab = viewModel.tabs[countTab - 1]
-                        }
-                    } label: {
-                        Text("-")
-                    }
-                    
-                    Text("\(countTab)")
-                        .bold()
-                    
-                    Button {
-                        guard countTab != viewModel.tabs.count else { return }
-
-                        countTab += 1
-                    } label: {
-                        Text("+")
-                    }
-                }
-                .font(.largeTitle)
-                .foregroundColor(.white)
-                .padding()
-                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30,
-                                                                     style: .continuous))
+                buttonPlusMinus()
             }
             .padding(.bottom, 130)
             
@@ -77,7 +44,7 @@ struct PreferenceKeyView: View {
                         
                         Button {
                             selectTab = item
-                            selectedX = viewModel.x[item.number - 1]
+                            selectedOffset = viewModel.arrayOffsets[item.number - 1]
                         } label: {
                             Text("\(item.number)")
                                 .font(.largeTitle.bold())
@@ -89,7 +56,7 @@ struct PreferenceKeyView: View {
                         .onPreferenceChange(OffsetTabPreferenceKey.self, perform: { value in
                             viewModel.updateXValue(item.number - 1, value)
                             if selectTab.id == item.id {
-                                selectedX = viewModel.x[item.number - 1]
+                                selectedOffset = viewModel.arrayOffsets[item.number - 1]
                             }
                         })
                         
@@ -104,7 +71,7 @@ struct PreferenceKeyView: View {
             .background(.ultraThinMaterial)
             .background(
                 Circle().fill(selectTab.color)
-                    .offset(x: selectedX)
+                    .offset(x: selectedOffset)
                     .frame(width: sizeOneTab.width)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .animation(.spring(response: 0.3, dampingFraction: 0.7), value: selectTab.id)
@@ -113,7 +80,7 @@ struct PreferenceKeyView: View {
                 Rectangle()
                     .fill(selectTab.color).frame(width: 30, height: 5).cornerRadius(3)
                     .frame(width: sizeOneTab.width)
-                    .offset(x: selectedX)
+                    .offset(x: selectedOffset)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                     .animation(.spring(response: 0.3, dampingFraction: 0.7), value: selectTab.id)
             )
@@ -121,57 +88,73 @@ struct PreferenceKeyView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea()
         }
+        .background(Color.black)
+    }
+    
+    //MARK: Private Methotds
+
+    private func buttonPlusMinus() -> some View {
+        HStack(spacing: 20) {
+            Button {
+                guard countTab != 1 else { return }
+                
+                countTab -= 1
+                
+                if selectTab.number > countTab {
+                    selectedOffset = viewModel.arrayOffsets[countTab - 1]
+                    selectTab = viewModel.tabs[countTab - 1]
+                }
+            } label: {
+                Text("-")
+            }
+            
+            Text("\(countTab)")
+                .bold()
+            
+            Button {
+                guard countTab != viewModel.tabs.count else { return }
+
+                countTab += 1
+            } label: {
+                Text("+")
+            }
+        }
+        .font(.largeTitle)
+        .foregroundColor(.white)
+        .padding()
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30,
+                                                             style: .continuous))
     }
     
     private func textDefault() -> some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("SelectX: \(String(format: "%.2f", selectedX))")
-                .foregroundColor(.white)
-                .font(.title.bold())
-                .background(
-                    GeometryReader { geometry in
-                        Color.clear
-                            .preference(key: SizeTextPreferenceKey.self,
-                                        value: geometry.size.width)
-                            .onPreferenceChange(SizeTextPreferenceKey.self) { value in
-                                sizeText = value
-                            }
-                    }
-            )
+            defaultText("Selected Offset: \(String(format: "%.2f", selectedOffset))")
 
-            HStack(spacing: 10) {
-                Text("array x = ")
-                    .foregroundColor(.gray)
-                
-                VStack(alignment: .leading, spacing: 0) {
-                    ForEach(viewModel.x, id: \.self) { item in
-                        Text("\(String(format: "%.2f", item))")
-                            .font(.title3)
-                            .foregroundColor(selectedX == item ? selectTab.color : .gray)
-                    }
-                }
-            }
+            arrayOffsets()
 
-            HStack {
-                VStack(spacing: 2) {
-                    Text("Width: \(String(format: "%.2f", sizeOneTab.width))")
-                        .foregroundColor(.white)
-                        .font(.footnote)
-                }
-                
-                VStack(spacing: 2) {
-                    Text("Height: \(String(format: "%.2f", sizeOneTab.height))")
-                        .foregroundColor(.white)
-                        .font(.footnote)
-                }
-            }
-            Rectangle()
-                .fill(selectTab.color)
-                .frame(height: 2)
-                .cornerRadius(3)
-                .frame(width: sizeText)
+            defaultText("WidthTab: \(String(format: "%.2f", sizeOneTab.width))")
         }
         .frame(maxWidth: .infinity, alignment: .center)
+    }
+    
+    private func arrayOffsets() -> some View {
+        HStack(spacing: 10) {
+            defaultText("ArrayOffsets =")
+            
+            VStack(alignment: .leading, spacing: 0) {
+                ForEach(viewModel.arrayOffsets, id: \.self) { item in
+                    Text("\(String(format: "%.2f", item))")
+                        .font(.title3)
+                        .foregroundColor(selectedOffset == item ? selectTab.color : .gray)
+                }
+            }
+        }
+    }
+    
+    private func defaultText(_ text: String) -> some View {
+        Text(text)
+            .foregroundColor(.white)
+            .font(.footnote)
     }
 }
 
@@ -195,14 +178,6 @@ struct SizeOneTabPreferenceKey: PreferenceKey {
 }
 
 struct OffsetTabPreferenceKey: PreferenceKey {
-    static var defaultValue: CGFloat = .zero
-    
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = nextValue()
-    }
-}
-
-struct SizeTextPreferenceKey: PreferenceKey {
     static var defaultValue: CGFloat = .zero
     
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {

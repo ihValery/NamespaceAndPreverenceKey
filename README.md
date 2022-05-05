@@ -1,3 +1,2 @@
-# NamespaceAndPreverenceKey
-Красивый полет кнопки
-двумя разными способами
+# Namespace and PreverenceKey
+Красивый полет кнопки двумя разными способами

@@ -136,7 +136,7 @@ struct PreferenceKeyView: View {
     
     private func textDefault() -> some View {
         VStack(alignment: .leading, spacing: 10) {
-            defaultText("Selected Offset: \(String(format: "%.2f", selectedOffset))")
+            defaultText("\(selectTab.name) offset: \(String(format: "%.2f", selectedOffset))")
             
             arrayOffsets()
             

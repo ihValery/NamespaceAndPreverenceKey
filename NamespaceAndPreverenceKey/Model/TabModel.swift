@@ -13,13 +13,15 @@ struct TabModel: Identifiable {
     
     var id: UUID
     var number: Int
+    var name: String
     var color: Color
     
     //MARK: Initializer
     
-    init(_ number: Int,_ color: Color) {
+    init(_ number: Int,_ name: String, _ color: Color) {
         id = UUID()
         self.number = number
+        self.name = name
         self.color = color
     }
 }

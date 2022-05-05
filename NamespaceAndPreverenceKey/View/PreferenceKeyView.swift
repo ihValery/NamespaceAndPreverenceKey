@@ -37,52 +37,56 @@ struct PreferenceKeyView: View {
             }
             .padding(.bottom, 130)
             
-            HStack(spacing: .zero) {
-                ForEach(viewModel.tabs.prefix(countTab)) { item in
-                    GeometryReader { geometry in
-                        let offset = geometry.frame(in: .global).minX
-                        
-                        oneTabButton(item)
-                            .preference(key: OffsetTabPreferenceKey.self, value: offset)
-                            .onPreferenceChange(OffsetTabPreferenceKey.self, perform: { value in
-                                viewModel.updateXValue(item.number - 1, value)
-                                if selectTab.id == item.id {
-                                    selectedOffset = viewModel.arrayOffsets[item.number - 1]
-                                }
-                            })
-                        
-                            .preference(key: SizeOneTabPreferenceKey.self, value: geometry.size)
-                            .onPreferenceChange(SizeOneTabPreferenceKey.self) { value in
-                                sizeOneTab = value
-                            }
-                    }
-                    .frame(height: 100)
-                }
-            }
-            .background(.ultraThinMaterial)
-            .background(
-                Circle().fill(selectTab.color)
-                    .offset(x: selectedOffset)
-                    .frame(width: sizeOneTab.width)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .animation(.spring(response: 0.3, dampingFraction: 0.7), value: selectTab.id)
-            )
-            .overlay(
-                Rectangle()
-                    .fill(selectTab.color).frame(width: 30, height: 5).cornerRadius(3)
-                    .frame(width: sizeOneTab.width)
-                    .offset(x: selectedOffset)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                    .animation(.spring(response: 0.3, dampingFraction: 0.7), value: selectTab.id)
-            )
-            .cornerRadius(30)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-            .ignoresSafeArea()
+            tabBarPanel()
         }
         .background(Color.black)
     }
     
     //MARK: Private Methotds
+    
+    private func tabBarPanel() -> some View {
+        HStack(spacing: .zero) {
+            ForEach(viewModel.tabs.prefix(countTab)) { item in
+                GeometryReader { geometry in
+                    let offset = geometry.frame(in: .global).minX
+                    
+                    oneTabButton(item)
+                        .preference(key: OffsetTabPreferenceKey.self, value: offset)
+                        .onPreferenceChange(OffsetTabPreferenceKey.self, perform: { value in
+                            viewModel.updateXValue(item.number - 1, value)
+                            if selectTab.id == item.id {
+                                selectedOffset = viewModel.arrayOffsets[item.number - 1]
+                            }
+                        })
+                    
+                        .preference(key: SizeOneTabPreferenceKey.self, value: geometry.size)
+                        .onPreferenceChange(SizeOneTabPreferenceKey.self) { value in
+                            sizeOneTab = value
+                        }
+                }
+                .frame(height: 100)
+            }
+        }
+        .background(.ultraThinMaterial)
+        .background(
+            Circle().fill(selectTab.color)
+                .offset(x: selectedOffset)
+                .frame(width: sizeOneTab.width)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .animation(.spring(response: 0.3, dampingFraction: 0.7), value: selectTab.id)
+        )
+        .overlay(
+            Rectangle()
+                .fill(selectTab.color).frame(width: 30, height: 5).cornerRadius(3)
+                .frame(width: sizeOneTab.width)
+                .offset(x: selectedOffset)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .animation(.spring(response: 0.3, dampingFraction: 0.7), value: selectTab.id)
+        )
+        .cornerRadius(30)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        .ignoresSafeArea()
+    }
     
     private func oneTabButton(_ item: TabModel) -> some View {
         Button {

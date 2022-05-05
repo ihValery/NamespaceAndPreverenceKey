@@ -24,7 +24,7 @@ final class TabBarVM: ObservableObject {
     }
         
     //MARK: Public Methotds
-
+    
     func updateArray(_ count: Int) {
         arrayOffsets = Array(repeating: 0, count: count)
     }

@@ -16,14 +16,13 @@ struct NamespaceView: View {
     @ObservedObject private var tabBarViewModel = TabBarVM()
     
     @AppStorage("selectTab") private var selectTab: Tab = .first
+    
+    @Namespace var buttonSpace
 
     var body: some View {
         VStack {
-            ForEach(tabBarViewModel.tabs) { tabItem in
-                OneButton(tabItem, $selectTab)
-                    .onLongPressGesture {
-                        deleteTab(tabItem)
-                    }
+            ForEach(tabBarViewModel.tabs) { item in
+                OneButton(item, buttonSpace, $selectTab)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -34,10 +33,6 @@ struct NamespaceView: View {
     
     //MARK: Private Methotds
     
-    private func deleteTab(_ tabItem: TabModel) {
-        
-    }
-
     private func getColor() -> Color {
         tabBarViewModel.getColor(selectTab)
     }
@@ -81,29 +76,35 @@ struct OneButton: View {
     
     //MARK: Properties
     
+    @Binding var selectTab: Tab
+
     private let tabItem: TabModel
 
-    @Binding var selectTab: Tab
+    private var buttonSpace: Namespace.ID
     
     var body: some View {
-        Text(tabItem.name)
-            .font(.title3)
-            .fontWeight(.medium)
-            .foregroundColor(selectTab == tabItem.tab ? .white : tabItem.color)
-            .padding(.vertical)
-            .padding(.leading, 30)
-            .frame(width: 150, alignment: .leading)
-            .background(backgrounSelect())
-        
-            .onTapGesture {
-                selectTab = tabItem.tab
+        Button {
+            withAnimation(.default) {
+                selectTab = tabItem.tab                
             }
+        } label: {
+            Text(tabItem.name)
+                .font(.title3)
+                .fontWeight(.medium)
+                .foregroundColor(selectTab == tabItem.tab ? .white : tabItem.color)
+                .padding(.vertical)
+                .padding(.leading, 30)
+                .background(Color.clear)
+                .frame(width: 150, alignment: .leading)
+                .background(backgrounSelect())
+        }
     }
     
     //MARK: Initializer
     
-    init(_ tabItem: TabModel, _ selectTab: Binding<Tab>) {
+    init(_ tabItem: TabModel,_ buttonSpace: Namespace.ID,_ selectTab: Binding<Tab>) {
         self.tabItem = tabItem
+        self.buttonSpace = buttonSpace
         self._selectTab = selectTab
     }
     
@@ -114,6 +115,7 @@ struct OneButton: View {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(tabItem.color)
                 .shadow(color: tabItem.color, radius: 10, x: 0, y: 0)
+                .matchedGeometryEffect(id: "buttonSpace", in: buttonSpace)
         }
     }
 }

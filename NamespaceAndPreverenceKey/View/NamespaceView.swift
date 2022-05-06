@@ -25,13 +25,9 @@ struct NamespaceView: View {
     
     @State private var rotationDegrees: Double = 0
     
-    private var isWithBangs: Bool {
-        UIScreen.main.bounds.height > 750
-    }
-    
     var body: some View {
-        VStack {
-            ScrollView(isWithBangs ? .init() : .vertical, showsIndicators: false) {
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 10) {
                 ForEach(tabBarViewModel.tabs) { item in
                     OneButton(item,
                               buttonSpace,
@@ -40,12 +36,10 @@ struct NamespaceView: View {
                               $twoColor,
                               $rotationDegrees)
                 }
-                .padding(.vertical, 30)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .offset(x: -15)
             }
         }
-        .offset(x: -15)
-        .ignoresSafeArea()
         .background(
             FullCircleView(twoColor, rotationDegrees)
                 .offset(x: UIScreen.main.bounds.width / 2)
@@ -151,8 +145,7 @@ struct OneButton: View {
         if selectTab == tabItem.tab {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(tabItem.color)
-                .shadow(color: tabItem.color, radius: 10, x: 0, y: 0)
-                .shadow(color: .primary.opacity(0.3), radius: 10, x: 0, y: 0)
+                .defaultShadow(tabItem.color)
                 .matchedGeometryEffect(id: "buttonSpace", in: buttonSpace)
         }
     }

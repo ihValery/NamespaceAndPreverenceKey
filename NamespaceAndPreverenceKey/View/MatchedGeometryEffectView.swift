@@ -10,30 +10,112 @@ import SwiftUI
 //MARK: - MatchedGeometryEffectView
 
 struct MatchedGeometryEffectView: View {
-    @State private var flag: Bool = true
+    
+    //MARK: Properties
+    
+    @Namespace private var nspaceOne
+    
+    @Namespace private var nspaceTwo
+    
+    @State private var flagOne: Bool = true
+    
+    @State private var flagTwo: Bool = true
     
     var body: some View {
-        HStack {
-            if flag {
-                Rectangle().fill(Color.green).frame(width: 100, height: 100)
-            }
+        VStack(spacing: 30) {
+            exampleOne()
             
-            Spacer()
-            
-            
-            Spacer()
-            
-            if !flag {
-                Circle().fill(Color.blue).frame(width: 50, height: 50)
-            }
-        }.frame(width: 400)
+            exampleTwo()
+        }
+        .padding()
     }
     
     //MARK: Private Methotds
-
-    private func buttonSwitch() -> some View {
+    
+    private func exampleTwo() -> some View {
+        HStack {
+            if flagTwo {
+                VStack {
+                    PolygonView(color: Color.green)
+                        .matchedGeometryEffect(id: "effectTwo", in: nspaceTwo)
+                        .frame(width: 200, height: 200)
+                }
+                .transition(.polygonTriangle)
+            }
+            
+            Spacer()
+            
+            buttonSwitch { flagTwo.toggle() }
+            
+            Spacer()
+            
+            if !flagTwo {
+                VStack {
+                    PolygonView(color: Color.blue)
+                        .matchedGeometryEffect(id: "effectTwo", in: nspaceTwo)
+                        .frame(width: 200, height: 200)
+                }
+                .transition(.polygonCircle)
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding()
+        .border(.purple, width: 2)
+    }
+    
+    private func exampleOne() -> some View {
+        HStack {
+            square()
+            
+            Spacer()
+            
+            buttonSwitch { flagOne.toggle() }
+            
+            Spacer()
+            
+            VStack {
+                smallSquare()
+                circle()
+                smallSquare()
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding()
+        .border(.purple, width: 2)
+    }
+    
+    @ViewBuilder private func circle() -> some View {
+        if !flagOne {
+            Circle()
+                .fill(.blue)
+                .matchedGeometryEffect(id: "effectOne", in: nspaceOne)
+                .frame(width: 50, height: 50)
+                .border(.black)
+                .zIndex(1)
+        }
+    }
+    
+    @ViewBuilder private func square() -> some View {
+        if flagOne {
+            Rectangle()
+                .fill(.yellow)
+                .matchedGeometryEffect(id: "effectOne", in: nspaceOne)
+                .frame(width: 100, height: 100)
+        }
+    }
+    
+    private func smallSquare() -> some View {
+        Rectangle()
+            .fill(.pink)
+            .frame(width: 50, height: 50)
+    }
+    
+    
+    private func buttonSwitch(_ action: @escaping () -> Void) -> some View {
         Button {
-            flag.toggle()
+            withAnimation(.easeInOut(duration: 2)) {
+                action()
+            }
         } label: {
             Text("Switch")
                 .foregroundColor(.primary)

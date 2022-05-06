@@ -24,6 +24,12 @@ struct LaunchView: View {
                 } label: {
                     oneLink("Namespace")
                 }
+                
+                NavigationLink {
+                    MatchedGeometryEffectView()
+                } label: {
+                    oneLink("Matched Geometry Effect")
+                }
             }
         }
     }

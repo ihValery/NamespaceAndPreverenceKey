@@ -14,6 +14,9 @@
 		80ACFBE428245C260061CC17 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBE328245C260061CC17 /* TabModel.swift */; };
 		80ACFBE728245C4F0061CC17 /* TabBarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBE628245C4F0061CC17 /* TabBarVM.swift */; };
 		80ACFBEC2824689B0061CC17 /* NamespaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBEB2824689B0061CC17 /* NamespaceView.swift */; };
+		80ACFBF628248F330061CC17 /* HalfCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBF428248F330061CC17 /* HalfCircle.swift */; };
+		80ACFBFE282494420061CC17 /* FullCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBFD282494420061CC17 /* FullCircleView.swift */; };
+		80ACFC002824B1230061CC17 /* SideCircleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBFF2824B1230061CC17 /* SideCircleModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		80ACFBE328245C260061CC17 /* TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
 		80ACFBE628245C4F0061CC17 /* TabBarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVM.swift; sourceTree = "<group>"; };
 		80ACFBEB2824689B0061CC17 /* NamespaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamespaceView.swift; sourceTree = "<group>"; };
+		80ACFBF428248F330061CC17 /* HalfCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircle.swift; sourceTree = "<group>"; };
+		80ACFBFD282494420061CC17 /* FullCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullCircleView.swift; sourceTree = "<group>"; };
+		80ACFBFF2824B1230061CC17 /* SideCircleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideCircleModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,7 @@
 				80ACFBE228245C150061CC17 /* Model */,
 				80ACFBE528245C3B0061CC17 /* ViewModel */,
 				80ACFBE828245EFF0061CC17 /* View */,
+				80ACFBF828248FB80061CC17 /* Shape */,
 				80ACFBD2282458A70061CC17 /* Assets.xcassets */,
 				80ACFBD4282458A70061CC17 /* Preview Content */,
 			);
@@ -79,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				80ACFBE328245C260061CC17 /* TabModel.swift */,
+				80ACFBFF2824B1230061CC17 /* SideCircleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -96,8 +104,17 @@
 			children = (
 				80ACFBE028245BA60061CC17 /* PreferenceKeyView.swift */,
 				80ACFBEB2824689B0061CC17 /* NamespaceView.swift */,
+				80ACFBFD282494420061CC17 /* FullCircleView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		80ACFBF828248FB80061CC17 /* Shape */ = {
+			isa = PBXGroup;
+			children = (
+				80ACFBF428248F330061CC17 /* HalfCircle.swift */,
+			);
+			name = Shape;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,9 +188,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				80ACFBEC2824689B0061CC17 /* NamespaceView.swift in Sources */,
+				80ACFC002824B1230061CC17 /* SideCircleModel.swift in Sources */,
 				80ACFBE128245BA60061CC17 /* PreferenceKeyView.swift in Sources */,
 				80ACFBE428245C260061CC17 /* TabModel.swift in Sources */,
 				80ACFBE728245C4F0061CC17 /* TabBarVM.swift in Sources */,
+				80ACFBF628248F330061CC17 /* HalfCircle.swift in Sources */,
+				80ACFBFE282494420061CC17 /* FullCircleView.swift in Sources */,
 				80ACFBCF282458A60061CC17 /* NamespaceAndPreverenceKeyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,7 +335,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ihValery.NamespaceAndPreverenceKey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -344,7 +364,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ihValery.NamespaceAndPreverenceKey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

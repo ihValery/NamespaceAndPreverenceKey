@@ -37,7 +37,7 @@ struct FullCircleView: View {
     private func halfCircle(_ side: SideCircle,_ color: Color) -> some View {
         HalfCircle(side)
             .foregroundColor(color)
-            .shadow(color: color, radius: 20, x: 0, y: 0)
+            .defaultShadow(color)
     }
 }
 

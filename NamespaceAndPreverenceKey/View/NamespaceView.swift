@@ -15,8 +15,6 @@ struct NamespaceView: View {
     
     @ObservedObject private var tabBarViewModel = TabBarVM()
     
-    //    @AppStorage("selectTab") private var selectTab: Tab = .first
-    
     @State private var selectTab: Tab = .first
     
     @Namespace var buttonSpace
@@ -27,18 +25,25 @@ struct NamespaceView: View {
     
     @State private var rotationDegrees: Double = 0
     
+    private var isWithBangs: Bool {
+        UIScreen.main.bounds.height > 750
+    }
+    
     var body: some View {
         VStack {
-            ForEach(tabBarViewModel.tabs) { item in
-                OneButton(item,
-                          buttonSpace,
-                          $selectTab,
-                          $isSideZero,
-                          $twoColor,
-                          $rotationDegrees)
+            ScrollView(isWithBangs ? .init() : .vertical, showsIndicators: false) {
+                ForEach(tabBarViewModel.tabs) { item in
+                    OneButton(item,
+                              buttonSpace,
+                              $selectTab,
+                              $isSideZero,
+                              $twoColor,
+                              $rotationDegrees)
+                }
+                .padding(.vertical, 30)
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
         .offset(x: -15)
         .ignoresSafeArea()
         .background(
@@ -118,31 +123,36 @@ struct OneButton: View {
     private func tapButton() {
         guard selectTab != tabItem.tab else { return }
         
-        
-        withAnimation(.default) {
-            if selectTab.id > tabItem.tab.id {
-                rotationDegrees += 180
-            } else {
-                rotationDegrees -= 180
-            }
+        withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+            clockwise()
             selectTab = tabItem.tab
-            
-            if isSideZero {
-                twoColor = [.clear, tabItem.color]
-            } else {
-                twoColor = [tabItem.color, .clear]
-            }
-            
+            fillHalfCircle()
             isSideZero.toggle()
         }
     }
-        
+    
+    private func fillHalfCircle() {
+        if isSideZero {
+            twoColor[1] = tabItem.color
+        } else {
+            twoColor[0] = tabItem.color
+        }
+    }
+    
+    private func clockwise() {
+        if selectTab.id > tabItem.tab.id {
+            rotationDegrees += 180
+        } else {
+            rotationDegrees -= 180
+        }
+    }
+    
     @ViewBuilder private func backgrounSelect() -> some View {
         if selectTab == tabItem.tab {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(tabItem.color)
                 .shadow(color: tabItem.color, radius: 10, x: 0, y: 0)
-                .shadow(color: .white, radius: 10, x: 0, y: 0)
+                .shadow(color: .primary.opacity(0.3), radius: 10, x: 0, y: 0)
                 .matchedGeometryEffect(id: "buttonSpace", in: buttonSpace)
         }
     }

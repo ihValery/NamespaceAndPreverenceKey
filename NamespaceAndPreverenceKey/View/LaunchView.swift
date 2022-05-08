@@ -42,13 +42,25 @@ struct LaunchView: View {
                 } label: {
                     oneLink("Anchor Point")
                 }
+                
+                NavigationLink {
+                    MultipleGroups()
+                } label: {
+                    oneLink("Multiple Groups, with Multiple Views")
+                }
+
+                NavigationLink {
+                    MultipleNamespaces()
+                } label: {
+                    oneLink("MultipleNamespaces")
+                }
             }
             .drawingGroup()
             .defaultShadow(.purple.opacity(0.2))
         }
     }
     
-    //MARK: Private Methotds
+    //MARK: Private Methods
 
     private func oneLink(_ text: String) -> some View {
         Text(text)

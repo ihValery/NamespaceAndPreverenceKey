@@ -11,6 +11,7 @@
 		803081BD2825BF59000B4858 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803081BC2825BF59000B4858 /* ViewModifier.swift */; };
 		803081BF2825C76A000B4858 /* MGEOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803081BE2825C76A000B4858 /* MGEOneView.swift */; };
 		803081C12825CE80000B4858 /* PolygonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803081C02825CE80000B4858 /* PolygonView.swift */; };
+		806066412828396E00582027 /* MultipleNamespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806066402828396E00582027 /* MultipleNamespaces.swift */; };
 		80ACFBCF282458A60061CC17 /* NamespaceAndPreverenceKeyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBCE282458A60061CC17 /* NamespaceAndPreverenceKeyApp.swift */; };
 		80ACFBD3282458A70061CC17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80ACFBD2282458A70061CC17 /* Assets.xcassets */; };
 		80ACFBD6282458A70061CC17 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80ACFBD5282458A70061CC17 /* Preview Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		80CC94462826926C006709DC /* MGETwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CC94452826926C006709DC /* MGETwoView.swift */; };
 		80CC944828269833006709DC /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CC944728269833006709DC /* Triangle.swift */; };
 		80D387162827E01D009163CF /* AnchorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D387152827E01D009163CF /* AnchorPoint.swift */; };
+		80D38718282825E5009163CF /* MultipleGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D38717282825E5009163CF /* MultipleGroups.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,7 @@
 		803081BC2825BF59000B4858 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		803081BE2825C76A000B4858 /* MGEOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGEOneView.swift; sourceTree = "<group>"; };
 		803081C02825CE80000B4858 /* PolygonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonView.swift; sourceTree = "<group>"; };
+		806066402828396E00582027 /* MultipleNamespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleNamespaces.swift; sourceTree = "<group>"; };
 		80ACFBCB282458A60061CC17 /* NamespaceAndPreverenceKey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NamespaceAndPreverenceKey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80ACFBCE282458A60061CC17 /* NamespaceAndPreverenceKeyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamespaceAndPreverenceKeyApp.swift; sourceTree = "<group>"; };
 		80ACFBD2282458A70061CC17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +48,7 @@
 		80CC94452826926C006709DC /* MGETwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGETwoView.swift; sourceTree = "<group>"; };
 		80CC944728269833006709DC /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		80D387152827E01D009163CF /* AnchorPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorPoint.swift; sourceTree = "<group>"; };
+		80D38717282825E5009163CF /* MultipleGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleGroups.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				803081BA2825B8F8000B4858 /* LaunchView.swift */,
+				80D38717282825E5009163CF /* MultipleGroups.swift */,
 				803081BE2825C76A000B4858 /* MGEOneView.swift */,
+				806066402828396E00582027 /* MultipleNamespaces.swift */,
 				80CC94452826926C006709DC /* MGETwoView.swift */,
 				80D387152827E01D009163CF /* AnchorPoint.swift */,
 				80ACFBE028245BA60061CC17 /* PreferenceKeyView.swift */,
@@ -219,9 +225,11 @@
 				803081C12825CE80000B4858 /* PolygonView.swift in Sources */,
 				80CC94462826926C006709DC /* MGETwoView.swift in Sources */,
 				80ACFBFE282494420061CC17 /* FullCircleView.swift in Sources */,
+				80D38718282825E5009163CF /* MultipleGroups.swift in Sources */,
 				80D387162827E01D009163CF /* AnchorPoint.swift in Sources */,
 				803081BB2825B8F8000B4858 /* LaunchView.swift in Sources */,
 				80ACFBCF282458A60061CC17 /* NamespaceAndPreverenceKeyApp.swift in Sources */,
+				806066412828396E00582027 /* MultipleNamespaces.swift in Sources */,
 				803081BF2825C76A000B4858 /* MGEOneView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

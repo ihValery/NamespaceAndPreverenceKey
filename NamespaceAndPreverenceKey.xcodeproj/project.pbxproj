@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		803081BB2825B8F8000B4858 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803081BA2825B8F8000B4858 /* LaunchView.swift */; };
 		803081BD2825BF59000B4858 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803081BC2825BF59000B4858 /* ViewModifier.swift */; };
-		803081BF2825C76A000B4858 /* MatchedGeometryEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803081BE2825C76A000B4858 /* MatchedGeometryEffectView.swift */; };
+		803081BF2825C76A000B4858 /* MGEOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803081BE2825C76A000B4858 /* MGEOneView.swift */; };
 		803081C12825CE80000B4858 /* PolygonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803081C02825CE80000B4858 /* PolygonView.swift */; };
 		80ACFBCF282458A60061CC17 /* NamespaceAndPreverenceKeyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBCE282458A60061CC17 /* NamespaceAndPreverenceKeyApp.swift */; };
 		80ACFBD3282458A70061CC17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80ACFBD2282458A70061CC17 /* Assets.xcassets */; };
@@ -21,12 +21,15 @@
 		80ACFBF628248F330061CC17 /* HalfCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBF428248F330061CC17 /* HalfCircle.swift */; };
 		80ACFBFE282494420061CC17 /* FullCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBFD282494420061CC17 /* FullCircleView.swift */; };
 		80ACFC002824B1230061CC17 /* SideCircleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ACFBFF2824B1230061CC17 /* SideCircleModel.swift */; };
+		80CC94462826926C006709DC /* MGETwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CC94452826926C006709DC /* MGETwoView.swift */; };
+		80CC944828269833006709DC /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CC944728269833006709DC /* Triangle.swift */; };
+		80D387162827E01D009163CF /* AnchorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D387152827E01D009163CF /* AnchorPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		803081BA2825B8F8000B4858 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		803081BC2825BF59000B4858 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
-		803081BE2825C76A000B4858 /* MatchedGeometryEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedGeometryEffectView.swift; sourceTree = "<group>"; };
+		803081BE2825C76A000B4858 /* MGEOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGEOneView.swift; sourceTree = "<group>"; };
 		803081C02825CE80000B4858 /* PolygonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonView.swift; sourceTree = "<group>"; };
 		80ACFBCB282458A60061CC17 /* NamespaceAndPreverenceKey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NamespaceAndPreverenceKey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80ACFBCE282458A60061CC17 /* NamespaceAndPreverenceKeyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamespaceAndPreverenceKeyApp.swift; sourceTree = "<group>"; };
@@ -39,6 +42,9 @@
 		80ACFBF428248F330061CC17 /* HalfCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircle.swift; sourceTree = "<group>"; };
 		80ACFBFD282494420061CC17 /* FullCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullCircleView.swift; sourceTree = "<group>"; };
 		80ACFBFF2824B1230061CC17 /* SideCircleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideCircleModel.swift; sourceTree = "<group>"; };
+		80CC94452826926C006709DC /* MGETwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGETwoView.swift; sourceTree = "<group>"; };
+		80CC944728269833006709DC /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		80D387152827E01D009163CF /* AnchorPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +81,7 @@
 				80ACFBE228245C150061CC17 /* Model */,
 				80ACFBE528245C3B0061CC17 /* ViewModel */,
 				80ACFBE828245EFF0061CC17 /* View */,
-				80ACFBF828248FB80061CC17 /* Shape */,
+				80ACFBF828248FB80061CC17 /* Components */,
 				80ACFBD2282458A70061CC17 /* Assets.xcassets */,
 				80ACFBD4282458A70061CC17 /* Preview Content */,
 			);
@@ -111,7 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				803081BA2825B8F8000B4858 /* LaunchView.swift */,
-				803081BE2825C76A000B4858 /* MatchedGeometryEffectView.swift */,
+				803081BE2825C76A000B4858 /* MGEOneView.swift */,
+				80CC94452826926C006709DC /* MGETwoView.swift */,
+				80D387152827E01D009163CF /* AnchorPoint.swift */,
 				80ACFBE028245BA60061CC17 /* PreferenceKeyView.swift */,
 				80ACFBEB2824689B0061CC17 /* NamespaceView.swift */,
 				80ACFBFD282494420061CC17 /* FullCircleView.swift */,
@@ -120,13 +128,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		80ACFBF828248FB80061CC17 /* Shape */ = {
+		80ACFBF828248FB80061CC17 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				80ACFBF428248F330061CC17 /* HalfCircle.swift */,
 				803081BC2825BF59000B4858 /* ViewModifier.swift */,
+				80CC944728269833006709DC /* Triangle.swift */,
 			);
-			name = Shape;
+			name = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,13 +213,16 @@
 				80ACFBE128245BA60061CC17 /* PreferenceKeyView.swift in Sources */,
 				80ACFBE428245C260061CC17 /* TabModel.swift in Sources */,
 				803081BD2825BF59000B4858 /* ViewModifier.swift in Sources */,
+				80CC944828269833006709DC /* Triangle.swift in Sources */,
 				80ACFBE728245C4F0061CC17 /* TabBarVM.swift in Sources */,
 				80ACFBF628248F330061CC17 /* HalfCircle.swift in Sources */,
 				803081C12825CE80000B4858 /* PolygonView.swift in Sources */,
+				80CC94462826926C006709DC /* MGETwoView.swift in Sources */,
 				80ACFBFE282494420061CC17 /* FullCircleView.swift in Sources */,
+				80D387162827E01D009163CF /* AnchorPoint.swift in Sources */,
 				803081BB2825B8F8000B4858 /* LaunchView.swift in Sources */,
 				80ACFBCF282458A60061CC17 /* NamespaceAndPreverenceKeyApp.swift in Sources */,
-				803081BF2825C76A000B4858 /* MatchedGeometryEffectView.swift in Sources */,
+				803081BF2825C76A000B4858 /* MGEOneView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

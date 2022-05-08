@@ -48,6 +48,12 @@ struct LaunchView: View {
                 } label: {
                     oneLink("Multiple Groups, with Multiple Views")
                 }
+
+                NavigationLink {
+                    MultipleNamespaces()
+                } label: {
+                    oneLink("MultipleNamespaces")
+                }
             }
             .drawingGroup()
             .defaultShadow(.purple.opacity(0.2))

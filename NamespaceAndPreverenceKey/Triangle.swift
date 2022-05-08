@@ -11,15 +11,6 @@ import SwiftUI
 
 struct Triangle: View {
     
-    //MARK: Enum
-    
-    enum Direction: Double {
-        case up = 0
-        case right = 90
-        case down = 180
-        case left = 270
-    }
-    
     //MARK: Properties
     
     private let direction: Direction
@@ -65,5 +56,23 @@ struct Triangle_Previews: PreviewProvider {
     static var previews: some View {
         Triangle(.down, .green)
             .frame(width: 100, height: 100)
+    }
+}
+
+//MARK: - Enum
+
+enum Direction: Double {
+    case up = 0
+    case right = 90
+    case down = 180
+    case left = 270
+    
+    var id: String {
+        switch self {
+        case .up: return "up"
+        case .right: return "right"
+        case .down: return "down"
+        case .left: return "left"
+        }
     }
 }

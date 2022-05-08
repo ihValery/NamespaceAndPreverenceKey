@@ -26,11 +26,25 @@ struct LaunchView: View {
                 }
                 
                 NavigationLink {
-                    MatchedGeometryEffectView()
+                    MGEOneView()
                 } label: {
                     oneLink("Matched Geometry Effect")
                 }
+                
+                NavigationLink {
+                    MGETwoView()
+                } label: {
+                    oneLink("Matched Geometry Effect 2")
+                }
+                
+                NavigationLink {
+                    AnchorPoint()
+                } label: {
+                    oneLink("Anchor Point")
+                }
             }
+            .drawingGroup()
+            .defaultShadow(.purple.opacity(0.2))
         }
     }
     
@@ -48,7 +62,6 @@ struct LaunchView: View {
             .background(
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .fill(.purple)
-                    .defaultShadow(.purple)
             )
             .padding(.horizontal, 30)
     }

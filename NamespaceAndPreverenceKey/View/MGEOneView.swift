@@ -1,5 +1,5 @@
 //
-//  MatchedGeometryEffectView.swift
+//  MGEOneView.swift
 //  NamespaceAndPreverenceKey
 //
 //  Created by Валерий Игнатьев on 7.05.22.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-//MARK: - MatchedGeometryEffectView
+//MARK: - MGEOneView
 
-struct MatchedGeometryEffectView: View {
+struct MGEOneView: View {
     
     //MARK: Properties
     
@@ -129,6 +129,6 @@ struct MatchedGeometryEffectView: View {
 
 struct MatchedGeometryEffectView_Previews: PreviewProvider {
     static var previews: some View {
-        MatchedGeometryEffectView()
+        MGEOneView()
     }
 }

@@ -44,6 +44,7 @@ struct NamespaceView: View {
             FullCircleView(twoColor, rotationDegrees)
                 .offset(x: UIScreen.main.bounds.width / 2)
         )
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     //MARK: Private Methotds

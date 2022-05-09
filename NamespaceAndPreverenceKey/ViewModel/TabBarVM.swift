@@ -16,9 +16,7 @@ final class TabBarVM: ObservableObject {
     @Published var tabs: [TabModel] = []
     
     @Published var arrayOffsets: [CGFloat] = [0]
-    
-//    @Published var twoColor: [Color] = []
-    
+        
     //MARK: Initializer
     
     init() {

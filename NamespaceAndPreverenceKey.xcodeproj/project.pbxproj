@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		802A6C9A2829DE19007B4A7C /* CalendarNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A6C992829DE19007B4A7C /* CalendarNamespace.swift */; };
 		803081BB2825B8F8000B4858 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803081BA2825B8F8000B4858 /* LaunchView.swift */; };
 		803081BD2825BF59000B4858 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803081BC2825BF59000B4858 /* ViewModifier.swift */; };
 		803081BF2825C76A000B4858 /* MGEOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803081BE2825C76A000B4858 /* MGEOneView.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		802A6C992829DE19007B4A7C /* CalendarNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarNamespace.swift; sourceTree = "<group>"; };
 		803081BA2825B8F8000B4858 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		803081BC2825BF59000B4858 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		803081BE2825C76A000B4858 /* MGEOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGEOneView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				803081BA2825B8F8000B4858 /* LaunchView.swift */,
+				802A6C992829DE19007B4A7C /* CalendarNamespace.swift */,
 				80D38717282825E5009163CF /* MultipleGroups.swift */,
 				803081BE2825C76A000B4858 /* MGEOneView.swift */,
 				806066402828396E00582027 /* MultipleNamespaces.swift */,
@@ -225,6 +228,7 @@
 				803081C12825CE80000B4858 /* PolygonView.swift in Sources */,
 				80CC94462826926C006709DC /* MGETwoView.swift in Sources */,
 				80ACFBFE282494420061CC17 /* FullCircleView.swift in Sources */,
+				802A6C9A2829DE19007B4A7C /* CalendarNamespace.swift in Sources */,
 				80D38718282825E5009163CF /* MultipleGroups.swift in Sources */,
 				80D387162827E01D009163CF /* AnchorPoint.swift in Sources */,
 				803081BB2825B8F8000B4858 /* LaunchView.swift in Sources */,

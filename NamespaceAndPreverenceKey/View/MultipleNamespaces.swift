@@ -23,36 +23,58 @@ struct MultipleNamespaces: View {
     @Namespace private var eight
     @Namespace private var nine
     @Namespace private var ten
+    @Namespace private var eleven
+    @Namespace private var twelve
+    @Namespace private var thirteen
+    @Namespace private var fourteen
+    @Namespace private var fifteen
+
     @Namespace private var unpair
     
     @State private var activeNSpace: Int = 0
     
+    private let columns: [GridItem] = Array(repeating: GridItem(.fixed(110)), count: 3)
+    
     var body: some View {
-        VStack(spacing: 30) {
-            grayShape()
-            
+        VStack(spacing: 0) {
+            allShadowShapes()
+                    
+            Spacer()
             trianglesUnpair()
+            Spacer()
             
             unpairButton()
         }
         .animation(.easeInOut, value: activeNSpace)
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     //MARK: Private Methods
     
-    private func grayShape() -> some View {
-        VStack(spacing: 30) {
-            LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
-                shadowShapeButton(namespace: one, width: 60, .up, .none, .none, .none)
-                shadowShapeButton(namespace: two, width: 90, .left, .right, .none, .none)
-                shadowShapeButton(namespace: three, width: 30, .up, .none, .none, .none)
-                shadowShapeButton(namespace: fore, width: 60, .up, .none, .none, .none)
+    private func allShadowShapes() -> some View {
+        LazyVGrid(columns: columns) {
+            Group {
+                shadowShapeButton(namespace: one, width: 60, .left, .none, .none, .none)
+                shadowShapeButton(namespace: two, width: 75, .left, .right, .none, .none)
+                shadowShapeButton(namespace: three, width: 40, .left, .down, .none, .none)
+                
+                shadowShapeButton(namespace: fore, width: 55, .right, .down, .none, .none)
                 shadowShapeButton(namespace: five, width: 70, .up, .right, .down, .left)
-                shadowShapeButton(namespace: six, width: 60, .up, .none, .none, .none)
-                shadowShapeButton(namespace: seven, width: 60, .up, .none, .none, .none)
-                shadowShapeButton(namespace: eight, width: 60, .up, .none, .none, .none)
-                shadowShapeButton(namespace: nine, width: 60, .up, .none, .none, .none)
-                shadowShapeButton(namespace: ten, width: 60, .up, .none, .none, .none)
+                shadowShapeButton(namespace: six, width: 60, .left, .up, .none, .none)
+                
+                shadowShapeButton(namespace: seven, width: 65, .right, .down, .left, .none)
+                shadowShapeButton(namespace: eight, width: 60, .down, .none, .none, .none)
+                shadowShapeButton(namespace: nine, width: 60, .up, .down, .none, .none)
+            }
+            
+            Group {
+                shadowShapeButton(namespace: ten, width: 60, .up, .right, .none, .none)
+                shadowShapeButton(namespace: eleven, width: 30, .up, .none, .none, .none)
+                shadowShapeButton(namespace: twelve, width: 75, .down, .right, .none, .none)
+                
+                shadowShapeButton(namespace: thirteen, width: 60, .up, .left, .down, .none)
+                shadowShapeButton(namespace: fourteen, width: 70, .up, .none, .none, .none)
+                shadowShapeButton(namespace: fifteen, width: 60, .right, .none, .none, .none)
             }
         }
     }
@@ -74,42 +96,53 @@ struct MultipleNamespaces: View {
                 oneShadowTriangle(four, namespace: namespace)
             }
             .frame(width: width, height: width)
+            .frame(width: 100, height: 100)
+            .background(
+                RoundedRectangle(cornerRadius: 13, style: .continuous)
+                    .fill(.gray.opacity(0.4))
+            )
         }
     }
     
     @ViewBuilder private func oneShadowTriangle(_ direction: Direction?,
                                                 namespace: Namespace.ID) -> some View {
         if let direction = direction {
-            Triangle(direction, .gray.opacity(0.4), isBorder: false)
+            Triangle(direction, .white, isBorder: false)
                 .matchedGeometryEffect(id: direction.id, in: namespace)
         }
     }
     
     private func trianglesUnpair() -> some View {
         HStack(spacing: 30) {
-            oneTriangle(.up, .green)
             oneTriangle(.right, .yellow)
+            oneTriangle(.up, .green)
             oneTriangle(.down, .blue)
             oneTriangle(.left, .red)
         }
     }
     
     private func oneTriangle(_ alignment: Direction, _ color: Color) -> some View {
-        Triangle(alignment, color, isBorder: activeNSpace == 0 ? true : false)
-            .matchedGeometryEffect(id: alignment.id,
-                                   in: activeNamespace(),
-                                   isSource: false)
-            .frame(width: 60, height: 60)
+        ZStack {
+            Triangle(alignment, .gray.opacity(0.1), isBorder: false)
+
+            Triangle(alignment, color, isBorder: false)
+                .matchedGeometryEffect(id: alignment.id,
+                                       in: activeNamespace(),
+                                       isSource: false)
+        }
+        .frame(width: 60, height: 60)
     }
     
     private func unpairButton() -> some View {
         Button {
             activeNSpace = 0
         } label: {
-            Text("Unpair")
-                .foregroundColor(.black)
+            Text("U  n  p  a  i  r")
+                .font(.title)
+                .foregroundColor(.white)
+                .fontWeight(.medium)
                 .frame(maxWidth: .infinity)
-                .frame(height: 40)
+                .frame(height: 50)
                 .background(
                     RoundedRectangle(cornerRadius: 13, style: .continuous)
                         .fill(.gray.opacity(0.4))
@@ -130,6 +163,12 @@ struct MultipleNamespaces: View {
         case eight.hashValue: return eight
         case nine.hashValue: return nine
         case ten.hashValue: return ten
+        case eleven.hashValue: return eleven
+        case twelve.hashValue: return twelve
+        case thirteen.hashValue: return thirteen
+        case fourteen.hashValue: return fourteen
+        case fifteen.hashValue: return fifteen
+            
         default: return unpair
         }
     }

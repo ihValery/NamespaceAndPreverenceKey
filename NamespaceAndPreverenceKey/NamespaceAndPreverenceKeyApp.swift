@@ -11,8 +11,7 @@ import SwiftUI
 struct NamespaceAndPreverenceKeyApp: App {
     var body: some Scene {
         WindowGroup {
-//            LaunchView()
-            ColorNamespace()
+            LaunchView()
         }
     }
 }

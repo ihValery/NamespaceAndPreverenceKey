@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		802A6C9A2829DE19007B4A7C /* CalendarNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A6C992829DE19007B4A7C /* CalendarNamespace.swift */; };
+		802A6C9A2829DE19007B4A7C /* ColorNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A6C992829DE19007B4A7C /* ColorNamespace.swift */; };
+		802A6C9C2829E40D007B4A7C /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A6C9B2829E40D007B4A7C /* ColorModel.swift */; };
+		802A6C9E2829E4A2007B4A7C /* ColorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A6C9D2829E4A2007B4A7C /* ColorVM.swift */; };
 		803081BB2825B8F8000B4858 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803081BA2825B8F8000B4858 /* LaunchView.swift */; };
 		803081BD2825BF59000B4858 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803081BC2825BF59000B4858 /* ViewModifier.swift */; };
 		803081BF2825C76A000B4858 /* MGEOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803081BE2825C76A000B4858 /* MGEOneView.swift */; };
@@ -30,7 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		802A6C992829DE19007B4A7C /* CalendarNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarNamespace.swift; sourceTree = "<group>"; };
+		802A6C992829DE19007B4A7C /* ColorNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorNamespace.swift; sourceTree = "<group>"; };
+		802A6C9B2829E40D007B4A7C /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
+		802A6C9D2829E4A2007B4A7C /* ColorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorVM.swift; sourceTree = "<group>"; };
 		803081BA2825B8F8000B4858 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		803081BC2825BF59000B4858 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		803081BE2825C76A000B4858 /* MGEOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGEOneView.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				80ACFBE328245C260061CC17 /* TabModel.swift */,
+				802A6C9B2829E40D007B4A7C /* ColorModel.swift */,
 				80ACFBFF2824B1230061CC17 /* SideCircleModel.swift */,
 			);
 			path = Model;
@@ -115,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				80ACFBE628245C4F0061CC17 /* TabBarVM.swift */,
+				802A6C9D2829E4A2007B4A7C /* ColorVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -123,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				803081BA2825B8F8000B4858 /* LaunchView.swift */,
-				802A6C992829DE19007B4A7C /* CalendarNamespace.swift */,
+				802A6C992829DE19007B4A7C /* ColorNamespace.swift */,
 				80D38717282825E5009163CF /* MultipleGroups.swift */,
 				803081BE2825C76A000B4858 /* MGEOneView.swift */,
 				806066402828396E00582027 /* MultipleNamespaces.swift */,
@@ -217,7 +223,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				802A6C9C2829E40D007B4A7C /* ColorModel.swift in Sources */,
 				80ACFBEC2824689B0061CC17 /* NamespaceView.swift in Sources */,
+				802A6C9E2829E4A2007B4A7C /* ColorVM.swift in Sources */,
 				80ACFC002824B1230061CC17 /* SideCircleModel.swift in Sources */,
 				80ACFBE128245BA60061CC17 /* PreferenceKeyView.swift in Sources */,
 				80ACFBE428245C260061CC17 /* TabModel.swift in Sources */,
@@ -228,7 +236,7 @@
 				803081C12825CE80000B4858 /* PolygonView.swift in Sources */,
 				80CC94462826926C006709DC /* MGETwoView.swift in Sources */,
 				80ACFBFE282494420061CC17 /* FullCircleView.swift in Sources */,
-				802A6C9A2829DE19007B4A7C /* CalendarNamespace.swift in Sources */,
+				802A6C9A2829DE19007B4A7C /* ColorNamespace.swift in Sources */,
 				80D38718282825E5009163CF /* MultipleGroups.swift in Sources */,
 				80D387162827E01D009163CF /* AnchorPoint.swift in Sources */,
 				803081BB2825B8F8000B4858 /* LaunchView.swift in Sources */,

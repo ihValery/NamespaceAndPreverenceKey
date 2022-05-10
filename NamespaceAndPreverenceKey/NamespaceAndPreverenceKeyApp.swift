@@ -12,7 +12,7 @@ struct NamespaceAndPreverenceKeyApp: App {
     var body: some Scene {
         WindowGroup {
 //            LaunchView()
-            CalendarNamespace()
+            ColorNamespace()
         }
     }
 }

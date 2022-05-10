@@ -5,8 +5,9 @@
 <img src="https://github.com/ihValery/NamespaceAndPreverenceKey/blob/main/Images/example2.gif?raw=true"></a>
 <img src="https://github.com/ihValery/NamespaceAndPreverenceKey/blob/main/Images/example3.gif?raw=truef"></a>
 <img src="https://github.com/ihValery/NamespaceAndPreverenceKey/blob/main/Images/example4.gif?raw=truef"></a>
+<img src="https://github.com/ihValery/NamespaceAndPreverenceKey/blob/main/Images/example5.gif?raw=truef"></a>
 
-- Multiple Namespaces
+- Multiple Namespaces + Color Namespace 
     - Вместо того, чтобы изменять все идентификаторы, мы просто изменяете одно пространство имен (одно представление может обслуживать свою геометрию с более чем одним значением id).
 
 - AnchorPoint

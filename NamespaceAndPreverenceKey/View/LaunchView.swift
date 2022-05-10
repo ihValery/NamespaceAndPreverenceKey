@@ -61,6 +61,12 @@ struct LaunchView: View {
                     } label: {
                         oneLink("Color Namespace")
                     }
+                    
+                    NavigationLink {
+                        FlyingStar()
+                    } label: {
+                        oneLink("Flying Star")
+                    }
                 }
                 .drawingGroup()
                 .defaultShadow(.purple.opacity(0.2))
